@@ -11,7 +11,7 @@ $ sudo cat /var/log/mysqld.log 확인
     -> temporary password 확인 -> copy
 $ mysql -uroot -p 
 
-4. Mysql root의 3 변경 
+4. Mysql root의 암호 변경 
 mysql> set global validate_password_policy=LOW;
 mysql> alter user 'root'@'localhost' identified by 'test1234';
 
@@ -19,10 +19,11 @@ mysql> alter user 'root'@'localhost' identified by 'test1234';
 mysql> create database cloud_db default character set utf8;
 mysql> create user 'user1'@'%' identified by 'test1234';
 mysql> grant all privileges on cloud_db.* to 'user1'@'%' identified by 'test1234';
+mysql> flush privileges;
 
 6. Mysql 접속 테스트
-Linux $ mysql -uuser1 -p 
-Windows c:\> mysql -uuser1 -p -h127.0.0.1 --port 13306
+Linux에서 실행] $ mysql -uuser1 -p 
+Windows에서 실행] c:\> mysql -uuser1 -p -h127.0.0.1 --port 13306
 
 7. my.cnf 파일 수정
 $ sudo vi /etc/my.cnf 수정 
