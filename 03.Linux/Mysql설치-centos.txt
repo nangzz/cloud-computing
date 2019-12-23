@@ -19,6 +19,7 @@ mysql> alter user 'root'@'localhost' identified by 'test1234';
 mysql> create database cloud_db default character set utf8;
 mysql> create user 'user1'@'%' identified by 'test1234';
 mysql> grant all privileges on cloud_db.* to 'user1'@'%' identified by 'test1234';
+mysql> flush privileges;
 
 6. Mysql 접속 테스트
 Linux $ mysql -uuser1 -p 
