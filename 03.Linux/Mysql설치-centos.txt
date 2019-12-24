@@ -40,7 +40,9 @@ mysql>  show master status
     -> file name, postion 확인 
 
 10. Master DB에서 replication 계정 생성
+mysql> set global validate_password_policy=LOW;
 mysql> grant replication slave on *.* to 'replicate_user'@'%' identified by 'test1234'
+mysql> flush privileges;
 
 11. Slave DB 설정 (Windows에서 실행)
 mysql> create database cloud_db default character set utf8;
