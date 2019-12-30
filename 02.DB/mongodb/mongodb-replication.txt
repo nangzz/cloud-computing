@@ -1,22 +1,28 @@
 0. Node01, node02, node03
 	/etc/hosts 파일에 node01, node02, node03의 IP address 등록
+		ex) 10.0.0.11 	node01	
+			10.0.0.12 	node02	
+			10.0.0.13 	node03
 
-1.  mkdir /data/node1 /data/node2 /data/arbiter
-2.  mongod --replSet myapp --dbpath /data/node1 --port 40000 --bind_ip_all
-    mongod --replSet myapp --dbpath /data/node2 --port 40001 --bind_ip_all
-    mongod --replSet myapp --dbpath /data/arbiter --port 40002 --bind_ip_all
+1.  mkdir 각 NODE의 디렉토리에 ./mongo/data 
+2.  (NODE01) mongod --replSet myapp --dbpath ./mongo/data --port 40001 --bind_ip_all
+    (NODE02) mongod --replSet myapp --dbpath ./mongo/data --port 40002 --bind_ip_all
+    (NODE03) mongod --replSet myapp --dbpath ./mongo/data --port 40003 --bind_ip_all
 
-3.  monogo --host 127.0.0.1 --port 4000
-4.   rs.initiate()
-5.  rs.add("localhost:40001")
-    rs.add("localhost:40002", {arbiterOnly: true}) --> Primary 선정에만 관여, 복제는 하지 않음
+3.  (NODE01)
+	mongo --host 10.0.0.11 --port 400001
+	
+4.  rs.initiate()
+5.  rs.add("10.0.0.12:40002")
+    rs.add("10.0.0.13:40003", {arbiterOnly: true}) --> Primary 선정에만 관여, 복제는 하지 않음
 6.  db.isMaster()
 7.  rs.status()
-8.  mongo 127.0.0.1:40000
+8.  (NODE01)
+	mongo 10.0.0.11:40001
         > use bookstore
         > db.books.insert({title: "Oliver Twist"})
         > show dbs
-9.  mongo 127.0.0.1:40001
+9.  mongo 10.0.0.12:40002
         > rs.slaveOk()
         > show dbs
         > db.books.find()
