@@ -1,0 +1,27 @@
+0. Node01, node02, node03
+	/etc/hosts 파일에 node01, node02, node03의 IP address 등록
+
+1.  mkdir /data/node1 /data/node2 /data/arbiter
+2.  mongod --replSet myapp --dbpath /data/node1 --port 40000 --bind_ip_all
+    mongod --replSet myapp --dbpath /data/node2 --port 40001 --bind_ip_all
+    mongod --replSet myapp --dbpath /data/arbiter --port 40002 --bind_ip_all
+
+3.  monogo --host 127.0.0.1 --port 4000
+4.   rs.initiate()
+5.  rs.add("localhost:40001")
+    rs.add("localhost:40002", {arbiterOnly: true}) --> Primary 선정에만 관여, 복제는 하지 않음
+6.  db.isMaster()
+7.  rs.status()
+8.  mongo 127.0.0.1:40000
+        > use bookstore
+        > db.books.insert({title: "Oliver Twist"})
+        > show dbs
+9.  mongo 127.0.0.1:40001
+        > rs.slaveOk()
+        > show dbs
+        > db.books.find()
+10. (Primary) > db.shutdownServer()
+11. (Secondary) -> (Primary) 로 승격
+    - db.books.insert() 사용 가능
+    - 나머지 노드들은 지속적으로 master에게 heartbeat 전달
+12. (기존 Master 다시 기동) -> Secondary로 작동 됨 
