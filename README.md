@@ -1,11 +1,12 @@
 # cloud-computing
 
-0. 필수 설치 프로그램
+0. 필수 설치 프로그램 
 - Git (https://git-scm.com/)
 - Visual Studio Code (https://code.visualstudio.com/)
 - Notepad++ (https://notepad-plus-plus.org/downloads/v7.8.2/)
 - Postman (https://www.getpostman.com/downloads/) <-회원 가입 필요
 - Nodejs (https://nodejs.org/ko/)
+- Xshell
 
 1. Cloud Computing
 - AWS login 확인
