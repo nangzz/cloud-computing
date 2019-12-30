@@ -1,19 +1,19 @@
-$ sudo yum -y update
+sudo yum -y update
 
 ### MongoDB 4.0 저장소 메타 정보 생성
-$ sudo touch /etc/yum.repos.d/mongodb-org.repo
-$ sudo bash -c 'echo "[mongodb-org-4.0]" >> /etc/yum.repos.d/mongodb-org.repo'
-$ sudo bash -c 'echo "name=MongoDB Repository" >> /etc/yum.repos.d/mongodb-org.repo'
-$ sudo bash -c 'echo "baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/" >> /etc/yum.repos.d/mongodb-org.repo'
-$ sudo bash -c 'echo "gpgcheck=1" >> /etc/yum.repos.d/mongodb-org.repo'
-$ sudo bash -c 'echo "enabled=1" >> /etc/yum.repos.d/mongodb-org.repo'
-$ sudo bash -c 'echo "gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo touch /etc/yum.repos.d/mongodb-org.repo
+sudo bash -c 'echo "[mongodb-org-4.0]" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo bash -c 'echo "name=MongoDB Repository" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo bash -c 'echo "baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo bash -c 'echo "gpgcheck=1" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo bash -c 'echo "enabled=1" >> /etc/yum.repos.d/mongodb-org.repo'
+sudo bash -c 'echo "gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc" >> /etc/yum.repos.d/mongodb-org.repo'
 
 ### MongoDB 4.0 설치
-$ sudo yum install -y mongodb-org
+sudo yum install -y mongodb-org
 
 ### 환경 설정
-$ sudo vi /etc/mongod.conf
+sudo vi /etc/mongod.conf
 net:
   port: 27017
   ### 내부망에 연결된 모든 노드로부터의 원격 접속을 허용
