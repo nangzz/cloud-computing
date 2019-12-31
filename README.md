@@ -8,7 +8,7 @@
 - Nodejs (https://nodejs.org/ko/)
 - Xshell
 
-1. Cloud Computing
+1. Cloud Computing (Optional)
 - AWS login 확인
 - heroku (https://www.heroku.com/)
 
@@ -21,3 +21,6 @@
 - Virtual Box version 6.0 이하 (https://www.virtualbox.org/) 
 - VM Ware player (https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/15_0)
 - Vagrant (https://www.vagrantup.com/)
+
+4. Docker
+- Docker CE for Windows (https://hub.docker.com/) <- 회원가입 필요
