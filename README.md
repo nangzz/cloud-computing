@@ -24,3 +24,4 @@
 
 4. Docker
 - Docker CE for Windows (https://hub.docker.com/) <- 회원가입 필요
+   - $ docker version
