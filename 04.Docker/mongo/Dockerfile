@@ -1,12 +1,9 @@
-FROM mongo 
+FROM mongo:latest
 
-WORKDIR /usr/src 
-RUN mkdir configs 
-WORKDIR /usr/src/configs 
+WORKDIR /usr/src
+RUN mkdir mongo_config
+WORKDIR /usr/src/mongo_config
 
-COPY replicaSet.js . 
-COPY setup.sh . 
+COPY replcaset_setting.js .
 
-RUN chmod +x ./setup.sh
- 
-CMD ["./setup.sh"]
+CMD ["mongo", "mongodb://mongo1:27017", "./replcaset_setting.js"]

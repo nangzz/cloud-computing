@@ -1,3 +1,2 @@
-#!/bin/bash 
-sleep 10 | echo Sleeping 
-mongo mongodb://mongo1:27017 replicaSet.js
+sleep 3
+mongo mongodb://mongo1:27017 ./replcaset_setting.js
