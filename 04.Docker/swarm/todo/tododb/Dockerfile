@@ -20,11 +20,11 @@ COPY init-data.sh /usr/local/bin/
 COPY sql /sql
 
 # (4) 스크립트, mysqld 실행
-ENTRYPOINT [ \
-  "prehook", \
-    "add-server-id.sh", \
-    "--", \
-  "docker-entrypoint.sh" \
-]
+# ENTRYPOINT [ \
+#   "prehook", \
+#     "add-server-id.sh", \
+#     "--", \
+#   "docker-entrypoint.sh" \
+# ]
 
-CMD ["mysqld"]
+# CMD ["mysqld"]
