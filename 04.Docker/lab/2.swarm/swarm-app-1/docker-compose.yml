@@ -16,6 +16,7 @@ services:
     ports:
       - 8000:80
       - 9000:9000
+      - 5001:5001
     depends_on: 
       - registry
     expose: 
