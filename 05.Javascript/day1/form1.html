@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function saveTemporary() {
+            // 선택된 sns 값 취득 
+            let selectedSns = document.getElementsByName("sns");
+            let selectedCount = 0;
+            for (let i=0; i<selectedSns.length; i++) {
+                if (selectedSns[i].checked) {
+                    selectedCount++;
+                    console.log(selectedSns[i].value);
+                }
+            }
+            if (selectedCount == 0) {
+                alert("SNS는 필수 선택사항 입니다. ");
+            }
+        }
+
+        window.onload = function() {
+            let btnNext = document.getElementById("btnNext");
+            btnNext.onclick = function() {
+                let name = document.getElementById("txtName");
+                let id = document.getElementById("txtId");
+                let pwd = document.getElementById("txtPwd");
+
+                if (name.value == "") {
+                    alert("이름은 필수 입력입니다.");
+                    return;
+                }
+                if (id.value == "") {
+                    alert("아이디는 필수 입력입니다.");
+                    return;
+                }
+                if (pwd.value == "") {
+                    alert("비밀번호는 필수 입력입니다.");
+                    return;
+                }
+                // 다음 단계 or form.action 페이지로 이동 
+                let frm = document.getElementById("registForm");
+                frm.action = "next.html";
+                frm.submit();
+            }
+        }
+    </script>
+</head>    
+<body>
+    <!-- POST/GET  
+        POST -> 사용자가 입력한 내용을 -> 서버에 전달(가입, 저장)
+            request  body 
+        GET -> 사용자가 서버의 resource를 요청 
+            웹 브라우저 -> URL 요청 
+    -->
+    <form action="regist.html" method="POST" id="registForm">
+        <div>*는 필수 입력사항입니다.</div>
+        * 이름: <input type="text" id="txtName" name="name" placeholder="이름을 입력하세요"><br/>
+        * 아이디: <input type="text" name="id" id="txtId" placeholder="아이디를 입력하세요"><br/>    
+        * 비밀번호: <input type="password" name="pwd" id="txtPwd" placeholder="비밀번호를 입력하세요"><br/>
+        남성: <input type="radio" name="gender">
+        여성: <input type="radio" name="gender"><br/>
+        * 사용하는 SNS: 
+        <input type="checkbox" name="sns" value="facebook"> Facebook
+        <input type="checkbox" name="sns" value="twitter"> Twitter
+        <input type="checkbox" name="sns" value="instagram"> Instgram
+        <input type="checkbox" name="sns" value="google+"> Google+  <br/>
+        연령: 
+        <select name="age">
+            <option value="10">10대</option>
+            <option value="20">20대</option>
+            <option value="30">30대</option>
+        </select> <br/>
+        사진:
+        <input type="file" name="profile"><br/>
+        자기 소개: 
+        <textarea cols="40" rows="5" name="intro"></textarea><br/>
+        <input type="submit" value="회원가입">
+        <input type="button" value="다음단계" id="btnNext">
+        <input type="button" value="임시 저장" onclick="saveTemporary()">
+    </form>
+
+    </body>
+</html>

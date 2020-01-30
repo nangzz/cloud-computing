@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function Student(name, kor, mat, eng) {
+            this.이름 = name; this.국어 = kor; this.영어 = eng;
+            this.수학 = mat; 
+            this.sum = function() {
+                return this.국어+this.영어+this.수학;
+            };
+            this.avg = function() {
+                return this.sum() / 4;
+            };
+        }
+        let students = []; // [], {}
+        students.push(new Student('AAA',90,83,95));
+        students.push(new Student('BBB',85,84,78));
+        students.push(new Student('CCC',70,79,88));
+        students.push(new Student('DDD',83,80,69));
+        students.push(new Student('EEE',92,69,93));
+        
+        function myFilter(element, index, array) {
+            // new Student('AAA',90,83,95) -> element.sum()
+            return element.sum() >= 250;
+        }
+
+        let highGroup = students.filter(myFilter);
+        highGroup.forEach(function(element) {
+            console.log(element.이름 + "/" + element.sum());
+        })
+    </script>
+</head>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // let json = `{
+        //         "id": 12345,
+        //         "accountNumer": "123-345-5665",
+        //         "name": "이도원",
+        //         "balance": 1000,
+        //         "lastTxDate": "2020-01-22"
+        //     }`;
+        // let parsedJson = JSON.parse(json);
+        // console.log(parsedJson);
+        // console.log(typeof parsedJson);
+        // console.log(parsedJson.name + "/" + parsedJson.balance);
+
+        let json = {
+                "id": 12345,
+                "accountNumer": "123-345-5665",
+                "name": "이도원",
+                "balance": 1000,
+                "lastTxDate": "2020-01-22"
+            };
+        let stringJson = JSON.stringify(json);
+        console.log(stringJson); // 다른 서비스(서버)에 전달 가능
+    </script>
+</head>
+</html>

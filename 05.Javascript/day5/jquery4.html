@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('input[type="text"]').val('test value');
+      // $('#name').val(); // getter
+      // $('#name').val('test'); // setter
+      $('#btn1').on('click', function() {
+        console.log($('#input1').val());console.log($('#input2').val());
+        console.log($('#input3').val());console.log($('#input4').val());
+        console.log($('#input5').val());console.log($('#input6').val());
+      })
+    });
+
+    setInterval(function() {
+      // let selectedItem = $('#mySelect').val();
+      let selectedItem = $('select > option:selected').val();
+
+      // let radioM = $('#input3').val();
+      // let radioF = $('#input7').val();
+      // 선택된 값만 출력(M or F) -> checked 
+      console.log($('input[name="gender"]:checked').val());
+    }, 5000);
+  </script>
+</head>
+<body>
+  입력필드(일반1):      <input id="input1" type="text" >    <br/>
+  입력필드(일반2):      <input id="input5" type="text" >    <br/>
+  입력필드(비밀번호):  <input id="input2" type="password" > <br/>
+  라디오(남성):        
+    <input id="input3" type="radio" name="gender" value="M"> <br/>
+  라디오(여성):        
+    <input id="input7" type="radio" name="gender" value="F"> <br/>
+  체크박스:           <input id="input4" type="checkbox" > <br/>
+  히든(숨김):         <input id="input6" type="hidden" > <br/>
+
+
+  <select id="mySelect">
+    <option value="apple">사과</option>
+    <option value="banana">바나나</option>
+    <option value="orange">오렌지</option>
+    <option value="kiwi">키위</option>
+  </select>
+  <button type="button" id="btn1">전송</button>
+</body>  
+</html>
+

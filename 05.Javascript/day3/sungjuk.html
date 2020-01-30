@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function Student(name, kor, mat, eng) {
+            this.이름 = name; this.국어 = kor; this.영어 = eng;
+            this.수학 = mat; 
+            this.sum = function() {
+                return this.국어+this.영어+this.수학;
+            };
+            this.avg = function() {
+                return this.sum() / 4;
+            };
+        }
+        let students = []; // [], {}
+        students.push(new Student('AAA',90,83,95));
+        students.push(new Student('BBB',85,84,78));
+        students.push(new Student('CCC',70,79,88));
+        students.push(new Student('DDD',83,80,69));
+        students.push(new Student('EEE',92,69,93));
+        // pop을 사용해서 데이터 출력
+        let totalSum = 0;
+        // let totalRow = students.length;
+        // for (let i=0; i<totalRow; i++) {
+        //     console.log(students.pop());
+        // }
+        students.sort(function(left, right) {
+            // return  right.sum() - left.sum();
+            console.log(left.이름+"/"+right.이름);
+            return  right.국어 - left.국어;
+        });
+        for (let i in students) {
+            with (students[i]) {
+                console.log(이름 + ":" + sum() + "/" + avg());
+                totalSum += sum(); 
+            }
+        }
+    
+        // 전체 평균 구하기
+        console.log("---------------------");
+        console.log("전체 평균: " + (totalSum / students.length / 3));
+    </script>
+</head>
+</html>

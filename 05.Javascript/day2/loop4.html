@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let array = [52,64,80,32,11];
+        let max = array[0];
+        let min = array[0];
+        for (let i=0; i<array.length; i++) {
+            if (max < array[i]) { // -> Math.max()
+                max = array[i];
+            }
+            if (min > array[i]) { // -> Math.min()
+                min = array[i];
+            }
+        }
+        console.log(max);
+        console.log(min);
+    </script>
+</head>
+</html>

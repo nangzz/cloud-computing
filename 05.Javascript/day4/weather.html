@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let weather_json = `
+        { 
+          "weather": [ {
+            "main": "Clouds", "description": "overcast clouds",
+            "icon": "04d"
+            }
+          ],
+          "main": {
+            "temp": 9.27, "temp_min": 9, "temp_max": 10, "humidity": 45
+          },
+          "wind": {
+            "speed": 1.5
+          },
+          "dt": 1580272499
+        }
+        `;
+        
+        window.onload = function() {
+          let _img = document.getElementById("_img");
+          let _temp = document.getElementById("_temp");
+          let _temp_min = document.getElementById("_temp_min");
+          let _temp_max = document.getElementById("_temp_max");
+          let _wind = document.getElementById("_wind");
+          
+          let parsedJson = JSON.parse(weather_json);
+          let _image = document.createElement("img");
+          _image.src = "http://openweathermap.org/img/wn/" 
+                + parsedJson.weather[0].icon +"@2x.png";
+          _img.appendChild(_image);
+          // _img에 추가 
+          _temp.innerText = "현재온도: " + parsedJson.main.temp + " 도" 
+              + ", " + parsedJson.weather[0].main;
+          _temp_min.innerText = parsedJson.main.temp_min;
+          _temp_max.innerText = parsedJson.main.temp_max;
+          _wind.innerText = "풍속: " + parsedJson.wind.speed + ", 습도: " 
+              + parsedJson.main.humidity;
+        }
+    </script>
+</head>
+<body>
+  <table>
+    <tr>
+      <td rowspan="2" id="_img"></td>
+      <td colspan="2" id="_temp"></td>
+    </tr>
+    <tr>
+      <td>
+        <span id="_temp_min" style="color: blue;">10</span> / 
+        <span id="_temp_max" style="color: red;">20</span>
+      </td>
+      <td id="_wind"></td>
+    </tr>
+  </table>
+</body>
+</html>

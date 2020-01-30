@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    window.onload = function() {
+      let _ul = document.createElement("ul");
+      let _li1 = document.createElement("li");
+      let _li2 = document.createElement("li");
+      let _naver = document.createTextNode("Naver");
+      let _daum = document.createTextNode("Daum");
+
+      _li1.appendChild(_naver);
+      _li2.appendChild(_daum);
+
+      _ul.appendChild(_li1);
+      _ul.appendChild(_li2);
+
+      document.body.appendChild(_ul);
+
+      // image tag 추가
+      let myImg = document.createElement("img");
+      myImg.src = "googlelogo.png";
+      myImg.width = 272;
+      myImg.height = 92;
+
+      document.body.appendChild(myImg);
+
+      let div1 = document.getElementById("myDiv1");
+      div1.innerHTML = "<h1 style='color: blue;'>Hello, Dowon. Hi, there</h1>";
+      document.body.removeChild(document.getElementById('myH1'));
+    }
+  </script>
+</head>
+<body>
+  <h1 id="myH1">Hello, DOM</h1>
+
+  <div id="myDiv1">
+    ~~~~ here
+  </div>
+</body>
+
+</html>
