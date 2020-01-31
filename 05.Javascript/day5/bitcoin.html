@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    .item {
+      display: inline-block;
+      overflow: hidden;
+      width: 120px; 
+    }
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="./mydate.js"></script>
   <script>
@@ -24,10 +37,10 @@
 
             let div = document.createElement("div");
             let html = "";
-            html += "<span style='width: 200px;'>" + date + "</span>";
-            html += "<span style='width: 200px;color:red;'>" + high + "</span>";
-            html += "<span style='width: 200px;color:blue;'>" + low + "</span>";
-            html += "<span style='width: 200px;'>" + volume + "</span>";
+            html += "<span class='item'>" + date + "</span>";
+            html += "<span class='item red'>" + high + "</span>";
+            html += "<span class='item blue'>" + low + "</span>";
+            html += "<span class='item'>" + volume + "</span>";
             div.innerHTML = html;
 
             $("#contents").append(div);
