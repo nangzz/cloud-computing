@@ -1,0 +1,29 @@
+<div>
+  <h1>Counter</h1>
+  <h2 id="counter">0</h2>
+  <button id="increase">+</button>
+  <button id="decrease">-</button>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+  let counter = 0;
+  // let currentNumber = document.getElementById('counter');
+  // let btnInc = document.getElementById('increase');
+  // btnInc.onclick = function() {
+  //   currentNumber.innerText  = counter++;
+  // }
+  $('#increase').on('click', function() {
+    counter++;
+    // $('#counter').innerText = counter;
+    $('#counter').text(counter); 
+    // $('#counter').html(counter);
+  });
+  $('#decrease').on('click', function() {
+    counter--;
+    $('#counter').text(counter); 
+  });
+</script>
