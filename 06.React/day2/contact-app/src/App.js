@@ -56,7 +56,8 @@ class App extends Component {
 
   render() {
     const { contacts, keyword } = this.state;
-    const filteredContacts = contacts.filter(v => v.name.indexOf(keyword) !== -1);
+    const filteredContacts = contacts.filter(
+      v => v.name.indexOf(keyword) !== -1);
 
     return (
       <div className="App-header">
