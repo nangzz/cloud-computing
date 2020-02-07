@@ -4,16 +4,19 @@ import PhoneList from './components/phone_list';
 
 class App extends Component {
   id = 1;
-  state = {
-    contacts: [
-      {
-        id: 0,
-        name: '관리자',
-        phone: '010-1111-1111'
-      }
-    ]
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: [
+        {
+          id: 0,
+          name: '관리자',
+          phone: '010-1111-1111'
+        }
+      ]
+    }
   }
-
+  
   handleCreate = (data) => {
     const { contacts } = this.state;
     this.setState({
