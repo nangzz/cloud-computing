@@ -19,7 +19,7 @@ class App extends Component {
     this.setState({
       contacts: contacts.concat({id: this.id++, ...data})
     })
-  }
+  } 
 
   // App.js 
   handleRemove = (selected_id) => {
